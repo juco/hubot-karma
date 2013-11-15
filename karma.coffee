@@ -35,19 +35,18 @@ negativeMsg = [
 ]
 
 class Karma
-  initialize: (robot) ->
-    console.log "Contructed karma with #{robot}"
+  constructor: (robot) ->
     @robot = robot
 
   key: (user) ->
     "karma-#{user}"
 
   set: (user, karma) ->
-    @robot.brain.set(karmaKey(user), karma)
+    @robot.brain.set(this.key(user), karma)
     karma
 
   get: (user) ->
-    parseInt(@robot.brain.get(karmaKey(user)), 10) || 0
+    parseInt(@robot.brain.get(this.key(user)), 10) || 0
 
 module.exports = (robot) ->
   karma = new Karma(robot)
