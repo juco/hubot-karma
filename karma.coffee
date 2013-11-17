@@ -52,7 +52,7 @@ module.exports = (robot) ->
   karma = new Karma(robot)
 
   robot.respond /karma @?([a-zA-Z\s]*)\s?(\+\+|--|reset)?/, (msg) ->
-    user = msg.match[1].trim()
+    user = msg.match[1].trim
 
     # Current karama
     unless msg.match[2]
